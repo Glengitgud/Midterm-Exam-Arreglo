@@ -32,19 +32,21 @@ def userInput():
         userInput()
 
 def salesRecord():
-
+    print("Adding Sale Record")
     itemInput = input("\nEnter item name: ")
-    quantityInput = input("Enter quantity: ")
-    priceInput = input("Enter price: ")
+    try:
+        quantityInput = int(input("Enter quantity: "))
+        priceInput = float(input("Enter price: "))
+    except ValueError:
+        print('\nPlease enter valid number.')
+        salesRecord()
 
-    quantityInput = int(quantityInput)
-    priceInput = float(priceInput)
+    totalAmount = quantityInput * priceInput
 
-    open('sales_log.txt')
-    write(itemInput)
-    write(quantityInput)
-    write(priceInput)
+    with open('sales_log.txt') as file:
+        file.write(f"Item: {itemInput} | Qty: {quantityInput} | Price: {priceInput} | Total: {totalAmount:.2f}\n")
 
+    print(f"\n Successfully added record! Total amount: {totalAmount:.2f}\n")
 
 def viewRecords():
     read = open('sales_log.txt')
