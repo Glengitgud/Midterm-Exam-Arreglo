@@ -1,6 +1,0 @@
-test testset stset sts
-tes t
-s
-t se
- t
- stcc

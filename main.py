@@ -1,6 +1,6 @@
 from os import write
 
-
+#push github
 def interface():
     print("========================================")
     print("     SALES RECORD MANAGEMENT SYSTEM     ")
